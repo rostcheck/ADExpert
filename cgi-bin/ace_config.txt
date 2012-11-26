@@ -1,0 +1,10 @@
+client_name = H2 Arms
+license_start_date = 20110601
+output_dir = output
+remove_to_file_threshold = 0 # Over this many errors are removed to a separate file
+output_excel = 1 # If set, errors removed to files are saved as Excel
+date_checks = 0 # 1 enables date checking (see below), 0 turns it off
+max_allowable_ship_days = 14 # Max expected days between a seller shipping and a receiver receiving an item
+supermax_ship_days = 40 # A number of ship days that is not reasonable, but is still concievable
+header_template = ATF_view_header.xls
+prior_inventory_string = From Prior Inventory

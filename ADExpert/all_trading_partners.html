@@ -1,0 +1,76 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+
+_R_DEFAULT_START
+sort = NAME
+_R_DEFAULT_END
+
+_R_OPTION_START_DELETE
+delete from trading_partner where trading_partner_id = _R_TRADING_PARTNER_ID
+_R_OPTION_END_DELETE
+
+_R_OPTION_START_SAVE
+insert into trading_partner values(_R_TRADING_PARTNER_ID, _R_NAME, _R_FFL_LICENSE_NUMBER, _R_PREMISES_ADDRESS1, _R_PREMISES_ADDRESS2, _R_PREMISES_CITY, _R_PREMISES_STATE, _R_PREMISES_ZIP, _R_MAILING_ADDRESS1, _R_MAILING_ADDRESS2, _R_MAILING_CITY, _R_MAILING_STATE, _R_MAILING_ZIP, _R_WEBSITE, _R_EMAIL, _R_PHONE, _R_NOTES)
+_R_OPTION_END_SAVE
+
+_R_OPTION_START_UPDATE
+update trading_partner set
+name = _R_NAME,
+ffl_license_number = _R_FFL_LICENSE_NUMBER,
+premises_address1 = _R_PREMISES_ADDRESS1,
+premises_address2 = _R_PREMISES_ADDRESS2,
+premises_city = _R_PREMISES_CITY,
+premises_state = _R_PREMISES_STATE,
+premises_zip = _R_PREMISES_ZIP,
+mailing_address1 = _R_MAILING_ADDRESS1,
+mailing_address2 = _R_MAILING_ADDRESS2,
+mailing_city = _R_MAILING_CITY,
+mailing_state = _R_MAILING_STATE,
+mailing_zip = _R_MAILING_ZIP,
+website = _R_WEBSITE,
+email = _R_EMAIL,
+phone = _R_PHONE,
+notes = _R_NOTES
+where trading_partner_id = _R_TRADING_PARTNER_ID
+_R_OPTION_END_UPDATE
+
+_R_QUERY_START_ONE
+select trading_partner_id, name, ffl_license_number, mailing_city, mailing_state, email, phone
+from trading_partner
+order by _R_SORT
+_R_QUERY_END_ONE
+<h2 align=center>All Trading Partners</h2>
+
+<table cellpadding="5">
+<tr>
+<td><b><a href="adexpert?action=all_trading_partners&sort=name">Name</b></a></td>
+<td><b><a href="adexpert?action=all_trading_partners&sort=ffl_license_number">FFL License Number</b></a></td>
+<td><b><a href="adexpert?action=all_trading_partners&sort=mailing_city">City</b></a></td>
+<td><b><a href="adexpert?action=all_trading_partners&sort=mailing_state">State</b></a></td>
+<td><b><a href="adexpert?action=all_trading_partners&sort=email">Email</b></a></td>
+<td><b><a href="adexpert?action=all_trading_partners&sort=phone">Phone</b></a></td>
+<td><b>Actions</b></td>
+</tr>
+
+_R_REPEAT_START_ONE
+<tr>
+<td>_R_NAME</td>
+<td>_R_FFL_LICENSE_NUMBER</td>
+<td>_R_MAILING_CITY</td>
+<td>_R_MAILING_STATE</td>
+<td>_R_EMAIL</td>
+<td>_R_PHONE</td>
+<td><a href="/cgi-bin/adexpert?action=all_trading_partners&option=delete&trading_partner_id=_R_TRADING_PARTNER_ID&sort=_R_SORT">
+delete</a>
+&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_trading_partner&trading_partner_id=_R_TRADING_PARTNER_ID">edit</a>
+</td>
+</tr>
+_R_REPEAT_END_ONE
+
+</table>
+<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_trading_partner">new
+trading_partner</a></p>
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

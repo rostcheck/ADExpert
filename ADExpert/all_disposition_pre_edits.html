@@ -1,0 +1,71 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+
+_R_DEFAULT_START
+sort = DISPOSITION_PRE_EDIT_ID
+_R_DEFAULT_END
+
+_R_OPTION_START_DELETE
+delete from disposition_pre_edit where disposition_pre_edit_id = _R_DISPOSITION_PRE_EDIT_ID
+_R_OPTION_END_DELETE
+
+_R_OPTION_START_SAVE
+insert into disposition_pre_edit values(_R_DISPOSITION_PRE_EDIT_ID, _R_DISPOSITION_ID, _R_DISPOSITION_DATE, _R_ACQUISITION_ID, _R_TRADING_PARTNER_ID, _R_4473_NUMBER, _R_LOST_STOLEN_ATF_INCIDENT_NUMBER, _R_LOST_STOLEN_PD_INCIDENT_NUMBER)
+_R_OPTION_END_SAVE
+
+_R_OPTION_START_UPDATE
+update disposition_pre_edit set
+disposition_id = _R_DISPOSITION_ID,
+disposition_date = _R_DISPOSITION_DATE,
+acquisition_id = _R_ACQUISITION_ID,
+trading_partner_id = _R_TRADING_PARTNER_ID,
+4473_number = _R_4473_NUMBER,
+lost_stolen_atf_incident_number = _R_LOST_STOLEN_ATF_INCIDENT_NUMBER,
+lost_stolen_pd_incident_number = _R_LOST_STOLEN_PD_INCIDENT_NUMBER
+where disposition_pre_edit_id = _R_DISPOSITION_PRE_EDIT_ID
+_R_OPTION_END_UPDATE
+
+_R_QUERY_START_ONE
+select disposition_pre_edit_id, disposition_id, disposition_date, acquisition_id, trading_partner_id, 4473_number, lost_stolen_atf_incident_number, lost_stolen_pd_incident_number
+from disposition_pre_edit
+order by _R_SORT
+_R_QUERY_END_ONE
+<h2 align=center>All disposition_pre_edits</h2>
+
+<table align="center" cellpadding="5">
+<tr>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=disposition_pre_edit_id">Disposition Pre Edit ID</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=disposition_id">Disposition ID</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=disposition_date">Disposition Date</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=acquisition_id">Acquisition ID</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=trading_partner_id">Trading Partner ID</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=4473_number">4473 Number</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=lost_stolen_atf_incident_number">Lost Stolen Atf Incident Number</b></a></td>
+<td><b><a href="adexpert?action=all_disposition_pre_edits&sort=lost_stolen_pd_incident_number">Lost Stolen Pd Incident Number</b></a></td>
+<td><b>Actions</b></td>
+</tr>
+
+_R_REPEAT_START_ONE
+<tr>
+<td>_R_DISPOSITION_PRE_EDIT_ID</td>
+<td>_R_DISPOSITION_ID</td>
+<td>_R_DISPOSITION_DATE</td>
+<td>_R_ACQUISITION_ID</td>
+<td>_R_TRADING_PARTNER_ID</td>
+<td>_R_4473_NUMBER</td>
+<td>_R_LOST_STOLEN_ATF_INCIDENT_NUMBER</td>
+<td>_R_LOST_STOLEN_PD_INCIDENT_NUMBER</td>
+<td><a href="/cgi-bin/adexpert?action=all_disposition_pre_edits&option=delete&disposition_pre_edit_id=_R_DISPOSITION_PRE_EDIT_ID&sort=_R_SORT">
+delete</a>
+&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_disposition_pre_edit&disposition_pre_edit_id=_R_DISPOSITION_PRE_EDIT_ID">edit</a>
+</td>
+</tr>
+_R_REPEAT_END_ONE
+
+</table>
+<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_disposition_pre_edit">new
+disposition_pre_edit</a></p>
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

@@ -1,0 +1,23 @@
+_R_IFTOP
+_R_NAVBAR
+<DIV class="pagecontent">
+
+_R_DEFAULT_START
+sort = serial_number
+_R_DEFAULT_END
+
+_R_QUERY_START_ONE
+select serial_number, model, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
+from firearm
+order by _R_SORT
+into OUTFILE '/home/global07/www/h2arms.com/makegunlisting/export.txt'
+_R_QUERY_END_ONE
+<H2 align=center>Exported listings</H2>
+
+_R_REPEAT_START_ONE
+<P>Click <a href="/home/global07/www/h2arms.com/makegunlisting/export.txt">here</a> to download the exported listing file.
+_R_REPEAT_END_ONE
+ 
+<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+</DIV>
+</BODY></HTML>

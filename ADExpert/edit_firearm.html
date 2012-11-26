@@ -1,0 +1,112 @@
+_R_IFTOP
+_R_NAVBAR
+_R_QUERY_START_ONE
+select firearm_id, manufacturer, importer, model, serial_number, firearm_type, caliber, cabinet, tray, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
+from firearm
+where firearm_ID = _R_FIREARM_ID
+_R_QUERY_END_ONE
+
+<div class="pagecontent">
+<h2 align=center>Edit firearm</h2>
+
+_R_REPEAT_START_ONE
+<form action="/cgi-bin/adexpert" method="POST">
+<table align="center" cellpadding="5">
+
+<tr cols="2">
+<td align="right"><b>Firearm ID</b></td>
+<td align="left"><input type="text" name="firearm_id" size="40"
+maxlength="40" value="_R_FIREARM_ID"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Manufacturer</b></td>
+<td align="left"><input type="text" name="manufacturer" size="40"
+maxlength="40" value="_R_MANUFACTURER"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Importer</b></td>
+<td align="left"><input type="text" name="importer" size="40"
+maxlength="40" value="_R_IMPORTER"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Model</b></td>
+<td align="left"><input type="text" name="model" size="40"
+maxlength="40" value="_R_MODEL"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Serial Number</b></td>
+<td align="left"><input type="text" name="serial_number" size="40"
+maxlength="40" value="_R_SERIAL_NUMBER"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Firearm Type</b></td>
+<td align="left"><input type="text" name="firearm_type" size="40"
+maxlength="40" value="_R_FIREARM_TYPE"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Caliber</b></td>
+<td align="left"><input type="text" name="caliber" size="40"
+maxlength="40" value="_R_CALIBER"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Cabinet</b></td>
+<td align="left"><input type="text" name="cabinet" size="40"
+maxlength="40" value="_R_CABINET"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Tray</b></td>
+<td align="left"><input type="text" name="tray" size="40"
+maxlength="40" value="_R_TRAY"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Hammer</b></td>
+<td align="left"><input type="text" name="hammer" size="40"
+maxlength="40" value="_R_HAMMER"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Butt</b></td>
+<td align="left"><input type="text" name="butt" size="40"
+maxlength="40" value="_R_BUTT"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Grips</b></td>
+<td align="left"><input type="text" name="grips" size="40"
+maxlength="40" value="_R_GRIPS"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Parts</b></td>
+<td align="left"><input type="text" name="parts" size="40"
+maxlength="40" value="_R_PARTS"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Grade</b></td>
+<td align="left"><input type="text" name="grade" size="40"
+maxlength="40" value="_R_GRADE"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Lockup</b></td>
+<td align="left"><input type="text" name="lockup" size="40"
+maxlength="40" value="_R_LOCKUP"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Trigger Type</b></td>
+<td align="left"><input type="text" name="trigger_type" size="40"
+maxlength="40" value="_R_TRIGGER_TYPE"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Notes</b></td>
+<td align="left"><input type="text" name="notes" size="40"
+maxlength="40" value="_R_NOTES"></td>
+</tr>
+
+</table>
+<center><input type=submit value="Save Changes"></center>
+<input type="hidden" name="action" value="all_firearms">
+<input type="hidden" name="firearm_id" value="_R_firearm_ID">
+<input type="hidden" name="option" value="update">
+
+</form>
+_R_REPEAT_END_ONE
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

@@ -1,0 +1,116 @@
+_R_IFTOP
+_R_NAVBAR
+_R_QUERY_START_ONE
+select serial_number, model, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
+from firearm
+where serial_number = _R_SERIAL_NUMBER
+_R_QUERY_END_ONE
+<DIV class="pagecontent">
+<H2 align=center>Edit listing</H2>
+
+_R_REPEAT_START_ONE
+<FORM action="/cgi-bin/makegunlisting" method="POST">
+<TABLE align="center" cellpadding="5">
+
+<TR cols="2">
+<TD align="left"><B>Serial ID</B></TD>
+<TD align="left"><INPUT type="text" name="serial_number" size="10"
+maxlength="10" value="_R_SERIAL_NUMBER"></TD>
+</TR>
+
+<TR cols="2">
+<TD align="left"><B>Model</B></TD>
+<TD align="left"><INPUT type="text" name="model" size="20"
+maxlength="10" value="_R_MODEL"></TD>
+</TR>
+
+<tr>
+<td><b>Hammer</b></td><td>
+<select name="hammer">
+<option value="DAO">DAO</option>
+<option value="standard">Standard</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Butt</b></td><td>
+<select name="butt">
+<option value="round">Round</option>
+<option value="square">Square</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Grips</b></td><td>
+<select name="grips">
+<option value="rubber">Rubber</option>
+<option value="wood">Wood</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Parts</b></td><td>
+<select name="parts">
+<option value="MIM">MIM</option>
+<option value="forged">Forged</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Trigger</b></td><td>
+<select name="trigger_type">
+<option value="smooth">Smooth</option>
+<option value="grooved">Grooved</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Grade</b></td><td>
+<select name="grade">
+<option value="very good">Very Good</option>
+<option value="good plus">Good Plus</option>
+<option value="good">Good</option>
+<option value="good minus">Good Minus</option>
+<option value="poor">Poor</option>
+<option value="needs repair">Needs Repair</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b>Lock-Up</b></td><td>
+<select name="lockup">
+<option value="excellent">Excellent</option>
+<option value="very good">Very Good</option>
+<option value="good">Good</option>
+<option value=""></option>
+</select>
+</td>
+</tr>
+
+<TR cols="2">
+<TD align="right"><B>Notes</B></TD>
+<TD align="left"><textarea rows=5 cols=40 name="notes" size="256"
+maxlength="256">_R_NOTES</textarea></TD>
+</TR>
+
+</TABLE>
+<CENTER><INPUT type=submit value="Save listing"></CENTER>
+<INPUT type="hidden" name="action" value="all_listings">
+<INPUT type="hidden" name="option" value="update">
+
+</FORM>
+_R_REPEAT_END_ONE
+<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+</DIV>
+</BODY></HTML>

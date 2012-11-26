@@ -1,0 +1,52 @@
+_R_IFTOP
+_R_NAVBAR
+_R_QUERY_START_ONE
+select acquisition_pre_edit_id, acquisition_id, firearm_id, acquisition_date, trading_partner_id
+from acquisition_pre_edit
+where acquisition_pre_edit_ID = _R_ACQUISITION_PRE_EDIT_ID
+_R_QUERY_END_ONE
+
+<div class="pagecontent">
+<h2 align=center>Edit acquisition_pre_edit</h2>
+
+_R_REPEAT_START_ONE
+<form action="/cgi-bin/adexpert" method="POST">
+<table align="center" cellpadding="5">
+
+<tr cols="2">
+<td align="right"><b>Acquisition Pre Edit ID</b></td>
+<td align="left"><input type="text" name="acquisition_pre_edit_id" size="40"
+maxlength="40" value="_R_ACQUISITION_PRE_EDIT_ID"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Acquisition ID</b></td>
+<td align="left"><input type="text" name="acquisition_id" size="40"
+maxlength="40" value="_R_ACQUISITION_ID"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Firearm ID</b></td>
+<td align="left"><input type="text" name="firearm_id" size="40"
+maxlength="40" value="_R_FIREARM_ID"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Acquisition Date</b></td>
+<td align="left"><input type="text" name="acquisition_date" size="40"
+maxlength="40" value="_R_ACQUISITION_DATE"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Trading Partner ID</b></td>
+<td align="left"><input type="text" name="trading_partner_id" size="40"
+maxlength="40" value="_R_TRADING_PARTNER_ID"></td>
+</tr>
+
+</table>
+<center><input type=submit value="Save Changes"></center>
+<input type="hidden" name="action" value="all_acquisition_pre_edits">
+<input type="hidden" name="acquisition_pre_edit_id" value="_R_acquisition_pre_edit_ID">
+<input type="hidden" name="option" value="update">
+
+</form>
+_R_REPEAT_END_ONE
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

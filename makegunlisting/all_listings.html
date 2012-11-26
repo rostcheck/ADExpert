@@ -1,0 +1,67 @@
+_R_IFTOP
+_R_NAVBAR
+<DIV class="pagecontent">
+
+_R_DEFAULT_START
+sort = serial_number
+_R_DEFAULT_END
+
+_R_OPTION_START_UPDATE
+update firearm  set
+model = _R_MODEL,
+hammer = _R_HAMMER,
+butt = _R_BUTT,
+grips = _R_GRIPS,
+parts = _R_PARTS,
+grade = _R_GRADE, 
+lockup = _R_LOCKUP,
+trigger_type = _R_TRIGGER_TYPE
+where serial_number = _R_SERIAL_NUMBER
+_R_OPTION_END_UPDATE
+
+_R_QUERY_START_ONE
+select serial_number, model, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
+from firearm
+order by _R_SORT
+_R_QUERY_END_ONE
+<H2 align=center>All listings</H2>
+
+<TABLE align="center" cellpadding="5">
+<TR>
+<TD><B><a href="makegunlisting?action=all_listings&sort=serial_number">Serial ID</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=model">Model</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=hammer">Hammer</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=butt">Butt</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=grips">Grips</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=parts">Parts</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=grade">Grade</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=lockup">Lockup</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=trigger_type">Trigger Type</B></a></TD>
+<TD><B><a href="makegunlisting?action=all_listings&sort=notes">Notes</B></a></TD>
+<TD><B>Actions</B></TD>
+</TR>
+
+_R_REPEAT_START_ONE
+<TR>
+<TD>_R_SERIAL_NUMBER</TD>
+<TD>_R_MODEL</TD>
+<TD>_R_HAMMER</TD>
+<TD>_R_BUTT</TD>
+<TD>_R_GRIPS</TD>
+<TD>_R_PARTS</TD>
+<TD>_R_GRADE</TD>
+<TD>_R_LOCKUP</TD>
+<TD>_R_TRIGGER_TYPE</TD>
+<TD>_R_NOTES</TD>
+<TD><a href="/cgi-bin/makegunlisting?action=edit_listing&serial_number=_R_SERIAL_NUMBER">edit</a>
+&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/makegunlisting?action=view_listing&serial_number=_R_SERIAL_NUMBER">view listing</a>
+
+</TD>
+</TR>
+_R_REPEAT_END_ONE
+
+</TABLE>
+<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+<P align="center">Export listings to a <a href="/cgi-bin/makegunlisting?action=export_listings">file</a>
+</DIV>
+</BODY></HTML>

@@ -1,0 +1,29 @@
+_R_IFTOP
+_R_QUERY_START_ONE
+select serial_number, model, hammer, butt, grips, parts, grade, lockup, trigger_type
+, notes
+from firearm
+where serial_number = _R_SERIAL_NUMBER
+_R_QUERY_END_ONE
+
+_R_REPEAT_START_ONE
+_R_TEXT
+_R_REPEAT_END_ONE
+<FORM action="/cgi-bin/makegunlisting" method="POST">
+<INPUT type="hidden" name="serial_number" value="_R_SERIAL_NUMBER">
+<INPUT type="hidden" name="model" value="_R_MODEL">
+<INPUT type="hidden" name="hammer" value="_R_HAMMER">
+<INPUT type="hidden" name="butt" value="_R_BUTT">
+<INPUT type="hidden" name="grips" value="_R_GRIPS">
+<INPUT type="hidden" name="parts" value="_R_PARTS">
+<INPUT type="hidden" name="grade" value="_R_GRADE">
+<INPUT type="hidden" name="lockup" value="_R_LOCKUP">
+<INPUT type="hidden" name="trigger_type" value="_R_TRIGGER_TYPE">
+<INPUT type="hidden" name="notes" value="_R_NOTES">
+
+<INPUT type="hidden" name="action" value="download">
+<CENTER><INPUT type=submit value="Download Listing"></CENTER>
+</FORM>
+<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+</DIV>
+</BODY></HTML>

@@ -1,0 +1,44 @@
+_R_IFTOP
+_R_NAVBAR
+<DIV class="pagecontent">
+
+_R_DEFAULT_START
+sort = model
+_R_DEFAULT_END
+
+_R_QUERY_START_ONE
+SELECT count(*) as count, model, grade
+FROM listing
+GROUP BY model, grade
+ORDER BY _RX_SORT
+_R_QUERY_END_ONE
+
+_R_QUERY_START_TWO
+select count(*) as count 
+from listing
+_R_QUERY_END_TWO
+<H2 align=center>Inventory detail</H2>
+
+<TABLE align="center" cellpadding="5">
+<TR>
+<TD><B><a href="makegunlisting?action=statistics&sort=count">Count</B></a></TD>
+<TD><B><a href="makegunlisting?action=statistics&sort=model">Model</B></a></TD>
+<TD><B><a href="makegunlisting?action=statistics&sort=grade">Grade</B></a></TD>
+</TR>
+
+_R_REPEAT_START_ONE
+<TR>
+<TD>_R_COUNT</TD>
+<TD>_R_MODEL</TD>
+<TD>_R_GRADE</TD>
+</TD>
+</TR>
+_R_REPEAT_END_ONE
+
+</TABLE>
+_R_REPEAT_START_TWO
+<P align="center">Total count: _R_COUNT
+_R_REPEAT_END_TWO
+<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+</DIV>
+</BODY></HTML>

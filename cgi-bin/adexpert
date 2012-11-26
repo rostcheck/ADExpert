@@ -1,0 +1,46 @@
+#!/usr/bin/perl -w
+# ifappbuilder
+# Instant Framework app builder
+
+# Date     Who     Change
+# -------- ------- -------------------------------------------------------
+# 08/26/10 davidr  Rebuilt from GAS admin
+
+use strict;
+use diagnostics;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+use Text::Wrap;
+use instantframe;
+use ifuser;
+use ifcart;
+use ifconfig;
+
+# Secure the path
+$ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
+
+# Initialize framework, with our project and application name
+$logging = 1;
+if_init("", "ADExpert");
+
+# Authenticate
+if (! admin_login()) { send_page("login_needed"); }
+else { default(); }
+
+# Default start screen
+sub default()
+{
+  log_msg("default()");
+  if ($cleanvar{'action'}) { 
+    if ($cleanvar{'action'} eq "logout") { 
+      logout('admin'); 
+      send_page("login_needed"); 
+    }
+    elsif ($cleanvar{'action'} eq "all_firearms_download") {
+      download_page("all_firearms_download", "txt", "all_firearms_report.csv");
+    }  
+    else { send_page($cleanvar{'action'}); }
+  }
+  else {send_page("admin_main"); }
+}
+

@@ -1,0 +1,63 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+
+_R_DEFAULT_START
+sort = ACQUISITION_ID
+_R_DEFAULT_END
+
+_R_OPTION_START_DELETE
+delete from acquisition where acquisition_id = _R_ACQUISITION_ID
+_R_OPTION_END_DELETE
+
+_R_OPTION_START_SAVE
+insert into acquisition values(_R_ACQUISITION_ID, _R_FIREARM_ID, _R_ACQUISITION_DATE, _R_TRADING_PARTNER_ID)
+_R_OPTION_END_SAVE
+
+_R_OPTION_START_UPDATE
+update acquisition set
+firearm_id = _R_FIREARM_ID,
+acquisition_date = _R_ACQUISITION_DATE,
+trading_partner_id = _R_TRADING_PARTNER_ID
+where acquisition_id = _R_ACQUISITION_ID
+_R_OPTION_END_UPDATE
+
+_R_QUERY_START_ONE
+select acquisition_id, a.firearm_id, f.serial_number, acquisition_date, a.trading_partner_id, tp.name
+from acquisition a
+join firearm f
+on a.firearm_id = f.firearm_id
+join trading_partner tp
+on a.trading_partner_id = tp.trading_partner_id
+order by _R_SORT
+_R_QUERY_END_ONE
+<h2 align=center>All Acquisitions</h2>
+
+<table align="center" cellpadding="5">
+<tr>
+<td><b><a href="adexpert?action=all_acquisitions&sort=acquisition_id">Acquisition ID</b></a></td>
+<td><b><a href="adexpert?action=all_acquisitions&sort=serial_number">Serial Number</b></a></td>
+<td><b><a href="adexpert?action=all_acquisitions&sort=acquisition_date">Acquisition Date</b></a></td>
+<td><b><a href="adexpert?action=all_acquisitions&sort=name">Trading Partner</b></a></td>
+<td><b>Actions</b></td>
+</tr>
+
+_R_REPEAT_START_ONE
+<tr>
+<td>_R_ACQUISITION_ID</td>
+<td>_R_SERIAL_NUMBER</td>
+<td>_R_ACQUISITION_DATE</td>
+<td>_R_NAME</td>
+<td><a href="/cgi-bin/adexpert?action=all_acquisitions&option=delete&acquisition_id=_R_ACQUISITION_ID&sort=_R_SORT">
+delete</a>
+&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_acquisition&acquisition_id=_R_ACQUISITION_ID">edit</a>
+</td>
+</tr>
+_R_REPEAT_END_ONE
+
+</table>
+<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_acquisition">new
+acquisition</a></p>
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

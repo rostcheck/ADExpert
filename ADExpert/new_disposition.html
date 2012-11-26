@@ -1,0 +1,48 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+<h2 align=center>Add a new disposition</h2>
+
+<form action="/cgi-bin/adexpert" method="POST">
+<table align="center" cellpadding="5">
+
+<tr cols="2">
+<td align="right"><b>Disposition Date</b></td>
+<td align="left"><input type="text" name="disposition_date" size="40"
+maxlength="40"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Acquisition ID</b></td>
+<td align="left"><input type="text" name="acquisition_id" size="40"
+maxlength="40"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Trading Partner ID</b></td>
+<td align="left"><input type="text" name="trading_partner_id" size="40"
+maxlength="40"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>4473 Number</b></td>
+<td align="left"><input type="text" name="4473_number" size="40"
+maxlength="40"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Lost Stolen Atf Incident Number</b></td>
+<td align="left"><input type="text" name="lost_stolen_atf_incident_number" size="40"
+maxlength="40"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Lost Stolen Pd Incident Number</b></td>
+<td align="left"><input type="text" name="lost_stolen_pd_incident_number" size="40"
+maxlength="40"></td>
+</tr>
+
+</table>
+<center><input type=submit value="Add Disposition"></center>
+<input type="hidden" name="action" value="all_dispositions">
+<input type="hidden" name="option" value="save">
+
+</form>
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>

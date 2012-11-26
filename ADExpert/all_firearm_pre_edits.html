@@ -1,0 +1,104 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+
+_R_DEFAULT_START
+sort = FIREARM_PRE_EDIT_ID
+_R_DEFAULT_END
+
+_R_OPTION_START_DELETE
+delete from firearm_pre_edit where firearm_pre_edit_id = _R_FIREARM_PRE_EDIT_ID
+_R_OPTION_END_DELETE
+
+_R_OPTION_START_SAVE
+insert into firearm_pre_edit values(_R_FIREARM_PRE_EDIT_ID, _R_FIREARM_ID, _R_MANUFACTURER, _R_IMPORTER, _R_MODEL, _R_SERIAL_NUMBER, _R_FIREARM_TYPE, _R_CALIBER, _R_CABINET, _R_TRAY, _R_HAMMER, _R_BUTT, _R_GRIPS, _R_PARTS, _R_GRADE, _R_LOCKUP, _R_TRIGGER_TYPE, _R_NOTES, _R_256)
+_R_OPTION_END_SAVE
+
+_R_OPTION_START_UPDATE
+update firearm_pre_edit set
+firearm_id = _R_FIREARM_ID,
+manufacturer = _R_MANUFACTURER,
+importer = _R_IMPORTER,
+model = _R_MODEL,
+serial_number = _R_SERIAL_NUMBER,
+firearm_type = _R_FIREARM_TYPE,
+caliber = _R_CALIBER,
+cabinet = _R_CABINET,
+tray = _R_TRAY,
+hammer = _R_HAMMER,
+butt = _R_BUTT,
+grips = _R_GRIPS,
+parts = _R_PARTS,
+grade = _R_GRADE,
+lockup = _R_LOCKUP,
+trigger_type = _R_TRIGGER_TYPE,
+notes = _R_NOTES,
+256 = _R_256
+where firearm_pre_edit_id = _R_FIREARM_PRE_EDIT_ID
+_R_OPTION_END_UPDATE
+
+_R_QUERY_START_ONE
+select firearm_pre_edit_id, firearm_id, manufacturer, importer, model, serial_number, firearm_type, caliber, cabinet, tray, hammer, butt, grips, parts, grade, lockup, trigger_type, notes, 256
+from firearm_pre_edit
+order by _R_SORT
+_R_QUERY_END_ONE
+<h2 align=center>All firearm_pre_edits</h2>
+
+<table align="center" cellpadding="5">
+<tr>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=firearm_pre_edit_id">Firearm Pre Edit ID</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=firearm_id">Firearm ID</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=manufacturer">Manufacturer</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=importer">Importer</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=model">Model</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=serial_number">Serial Number</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=firearm_type">Firearm Type</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=caliber">Caliber</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=cabinet">Cabinet</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=tray">Tray</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=hammer">Hammer</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=butt">Butt</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=grips">Grips</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=parts">Parts</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=grade">Grade</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=lockup">Lockup</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=trigger_type">Trigger Type</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=notes">Notes</b></a></td>
+<td><b><a href="adexpert?action=all_firearm_pre_edits&sort=256">256</b></a></td>
+<td><b>Actions</b></td>
+</tr>
+
+_R_REPEAT_START_ONE
+<tr>
+<td>_R_FIREARM_PRE_EDIT_ID</td>
+<td>_R_FIREARM_ID</td>
+<td>_R_MANUFACTURER</td>
+<td>_R_IMPORTER</td>
+<td>_R_MODEL</td>
+<td>_R_SERIAL_NUMBER</td>
+<td>_R_FIREARM_TYPE</td>
+<td>_R_CALIBER</td>
+<td>_R_CABINET</td>
+<td>_R_TRAY</td>
+<td>_R_HAMMER</td>
+<td>_R_BUTT</td>
+<td>_R_GRIPS</td>
+<td>_R_PARTS</td>
+<td>_R_GRADE</td>
+<td>_R_LOCKUP</td>
+<td>_R_TRIGGER_TYPE</td>
+<td>_R_NOTES</td>
+<td>_R_256</td>
+<td><a href="/cgi-bin/adexpert?action=all_firearm_pre_edits&option=delete&firearm_pre_edit_id=_R_FIREARM_PRE_EDIT_ID&sort=_R_SORT">
+delete</a>
+&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_firearm_pre_edit&firearm_pre_edit_id=_R_FIREARM_PRE_EDIT_ID">edit</a>
+</td>
+</tr>
+_R_REPEAT_END_ONE
+
+</table>
+<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_firearm_pre_edit">new
+firearm_pre_edit</a></p>
+<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+</div>
+</body></html>
