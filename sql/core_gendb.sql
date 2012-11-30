@@ -6,8 +6,8 @@ create table admin
 (
   admin_id MEDIUMINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   login_id CHAR(8) NOT NULL,
-  email VARCHAR(40) NOT NULL,
-  password VARCHAR(20) NOT NULL
+  user_email VARCHAR(40) NOT NULL,
+  user_password VARCHAR(20) NOT NULL
 );
 
 drop table if exists trace_log;

@@ -22,8 +22,8 @@ my $agt_file = $ARGV[0];
 my @fields = ('row_num', 'manufacturer', 'model', 'serial_id', 'type', 'caliber', 'acquisition_date', 'acquisition_name', 'acquisition_license', 'acquisition_address', 'disposition_date', 'disposition_name',  'disposition_license', 'disposition_address');
 my $r_book = make_book($agt_file, "master", \@fields);
 #load_firearms($r_book);
-#load_trading_partners($r_book);
-#load_acquisitions($r_book);
+load_trading_partners($r_book);
+load_acquisitions($r_book);
 load_dispositions($r_book);
 
 sub load_firearms

@@ -15,16 +15,17 @@ grips = _R_GRIPS,
 parts = _R_PARTS,
 grade = _R_GRADE, 
 lockup = _R_LOCKUP,
-trigger_type = _R_TRIGGER_TYPE
+trigger_type = _R_TRIGGER_TYPE,
+notes = _R_NOTES
 where serial_number = _R_SERIAL_NUMBER
 _R_OPTION_END_UPDATE
 
 _R_QUERY_START_ONE
 select serial_number, model, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
-from firearm
+from inventory_firearm
 order by _R_SORT
 _R_QUERY_END_ONE
-<H2 align=center>All listings</H2>
+<H2 align=center>All listings for guns in inventory</H2>
 
 <TABLE align="center" cellpadding="5">
 <TR>

@@ -8,14 +8,14 @@ _R_DEFAULT_END
 
 _R_QUERY_START_ONE
 select count(*) as count, left(model,2) as mmodel, grade
-from firearm
+from inventory_firearm
 group by mmodel, grade
 order by _RX_SORT
 _R_QUERY_END_ONE
 
 _R_QUERY_START_TWO
 select count(*) as count 
-from firearm
+from inventory_firearm
 _R_QUERY_END_TWO
 <H2 align=center>Inventory overview</H2>
 

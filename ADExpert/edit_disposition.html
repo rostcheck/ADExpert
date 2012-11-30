@@ -1,37 +1,63 @@
 _R_IFTOP
 _R_NAVBAR
 _R_QUERY_START_ONE
+SELECT a.acquisition_id, f.firearm_id, f.manufacturer, f.model, f.serial_number
+FROM acquisition a
+JOIN firearm f ON a.firearm_id = f.firearm_id
+LEFT JOIN disposition d ON d.acquisition_id = a.acquisition_id
+WHERE d.acquisition_id IS NULL
+OR d.acquisition_id = (select acquisition_id from disposition where disposition_id = _R_DISPOSITION_ID)
+ORDER BY serial_number
+_R_QUERY_END_ONE
+
+_R_QUERY_START_TWO
+select trading_partner_id, name, ffl_license_number
+from trading_partner
+order by name
+_R_QUERY_END_TWO
+
+_R_QUERY_START_THREE
 select disposition_id, disposition_date, acquisition_id, trading_partner_id, 4473_number, lost_stolen_atf_incident_number, lost_stolen_pd_incident_number
 from disposition
 where disposition_ID = _R_DISPOSITION_ID
-_R_QUERY_END_ONE
+_R_QUERY_END_THREE
 
 <div class="pagecontent">
 <h2 align=center>Edit disposition</h2>
 
-_R_REPEAT_START_ONE
+_R_REPEAT_START_THREE
 <form action="/cgi-bin/adexpert" method="POST">
 <table align="center" cellpadding="5">
 
 <tr cols="2">
 <td align="right"><b>Disposition ID</b></td>
 <td align="left"><input type="text" name="disposition_id" size="40"
-maxlength="40" value="_R_DISPOSITION_ID"></td>
+maxlength="40" value="_R_DISPOSITION_ID" readonly></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Disposition Date</b></td>
 <td align="left"><input type="text" name="disposition_date" size="40"
-maxlength="40" value="_R_DISPOSITION_DATE"></td>
+maxlength="40" value="_R_DISPOSITION_DATE" placeholder="2012-01-12" required pattern="\d{4}-\d{2}-\d{2}"></td>
 </tr>
 <tr cols="2">
-<td align="right"><b>Acquisition ID</b></td>
-<td align="left"><input type="text" name="acquisition_id" size="40"
-maxlength="40" value="_R_ACQUISITION_ID"></td>
+<td align="right"><b>Firearm</b></td>
+<td align="left">
+<select type="text" name="acquisition_id">
+_R_REPEAT_START_ONE
+<option value="_R_ACQUISITION_ID">_R_SERIAL_NUMBER _R_MANUFACTURER _R_MODEL</option>
+_R_REPEAT_END_ONE
+</select>
+</td>
 </tr>
 <tr cols="2">
-<td align="right"><b>Trading Partner ID</b></td>
-<td align="left"><input type="text" name="trading_partner_id" size="40"
-maxlength="40" value="_R_TRADING_PARTNER_ID"></td>
+<td align="right"><b>Trading Partner</b></td>
+<td align="left">
+<select name="trading_partner_id">
+_R_REPEAT_START_TWO
+<option value="_R_TRADING_PARTNER_ID">_R_NAME _R_FFL_LICENSE_NUMBER</option>
+_R_REPEAT_END_TWO
+</select>
+</td>
 </tr>
 <tr cols="2">
 <td align="right"><b>4473 Number</b></td>
@@ -39,12 +65,12 @@ maxlength="40" value="_R_TRADING_PARTNER_ID"></td>
 maxlength="40" value="_R_4473_NUMBER"></td>
 </tr>
 <tr cols="2">
-<td align="right"><b>Lost Stolen Atf Incident Number</b></td>
+<td align="right"><b>Lost/Stolen ATF Incident Number</b></td>
 <td align="left"><input type="text" name="lost_stolen_atf_incident_number" size="40"
 maxlength="40" value="_R_LOST_STOLEN_ATF_INCIDENT_NUMBER"></td>
 </tr>
 <tr cols="2">
-<td align="right"><b>Lost Stolen Pd Incident Number</b></td>
+<td align="right"><b>Lost/Stolen PD Incident Number</b></td>
 <td align="left"><input type="text" name="lost_stolen_pd_incident_number" size="40"
 maxlength="40" value="_R_LOST_STOLEN_PD_INCIDENT_NUMBER"></td>
 </tr>
@@ -56,7 +82,7 @@ maxlength="40" value="_R_LOST_STOLEN_PD_INCIDENT_NUMBER"></td>
 <input type="hidden" name="option" value="update">
 
 </form>
-_R_REPEAT_END_ONE
+_R_REPEAT_END_THREE
 <p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
 </div>
 </body></html>

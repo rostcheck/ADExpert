@@ -21,12 +21,12 @@ maxlength="40" value="_R_TRADING_PARTNER_ID" readonly></td>
 <tr cols="2">
 <td align="right"><b>Name</b></td>
 <td align="left"><input type="text" name="name" size="40"
-maxlength="40" value="_R_NAME"></td>
+maxlength="40" value="_R_NAME" required placeholder="ABC Firearms"></td>
 </tr>
 <tr cols="2">
-<td align="right"><b>Ffl License Number</b></td>
+<td align="right"><b>FFL License Number</b></td>
 <td align="left"><input type="text" name="ffl_license_number" size="40"
-maxlength="40" value="_R_FFL_LICENSE_NUMBER"></td>
+maxlength="40" value="_R_FFL_LICENSE_NUMBER" placeholder="5-75-439-01-5G-07308"></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Premises Address1</b></td>
@@ -56,7 +56,7 @@ maxlength="40" value="_R_PREMISES_ZIP"></td>
 <tr cols="2">
 <td align="right"><b>Mailing Address1</b></td>
 <td align="left"><input type="text" name="mailing_address1" size="40"
-maxlength="40" value="_R_MAILING_ADDRESS1"></td>
+maxlength="40" value="_R_MAILING_ADDRESS1" required></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Mailing Address2</b></td>
@@ -66,31 +66,31 @@ maxlength="40" value="_R_MAILING_ADDRESS2"></td>
 <tr cols="2">
 <td align="right"><b>Mailing City</b></td>
 <td align="left"><input type="text" name="mailing_city" size="40"
-maxlength="40" value="_R_MAILING_CITY"></td>
+maxlength="40" value="_R_MAILING_CITY" required></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Mailing State</b></td>
 <td align="left"><input type="text" name="mailing_state" size="40"
-maxlength="40" value="_R_MAILING_STATE"></td>
+maxlength="40" value="_R_MAILING_STATE" required></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Mailing Zip</b></td>
 <td align="left"><input type="text" name="mailing_zip" size="40"
-maxlength="40" value="_R_MAILING_ZIP"></td>
+maxlength="40" value="_R_MAILING_ZIP" required></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Website</b></td>
-<td align="left"><input type="text" name="website" size="40"
+<td align="left"><input type="url" name="website" size="40"
 maxlength="40" value="_R_WEBSITE"></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Email</b></td>
-<td align="left"><input type="text" name="email" size="40"
+<td align="left"><input type="email" name="email" size="40"
 maxlength="40" value="_R_EMAIL"></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Phone</b></td>
-<td align="left"><input type="text" name="phone" size="40"
+<td align="left"><input type="tel" name="phone" size="40"
 maxlength="40" value="_R_PHONE"></td>
 </tr>
 <tr cols="2">
@@ -102,7 +102,7 @@ maxlength="40" value="_R_NOTES"></td>
 </table>
 <center><input type=submit value="Save Changes"></center>
 <input type="hidden" name="action" value="all_trading_partners">
-<input type="hidden" name="trading_partner_id" value="_R_trading_partner_ID">
+<input type="hidden" name="trading_partner_id" value="_R_TRADING_PARTNER_ID">
 <input type="hidden" name="option" value="update">
 
 </form>

@@ -43,7 +43,7 @@ sub default()
     #else { send_page($cleanvar{'action'}); }
     send_page($cleanvar{'action'});
   }
-  else {send_page("all_listings"); }
+  else {send_page("admin_main"); }
 }
 
 # Make a listing, using the template
