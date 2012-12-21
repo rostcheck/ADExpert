@@ -53,7 +53,6 @@ $if_template_dir = "$home_dir/templates";
 
 # Set to: "db", "stdout", or don't set
 #$logging = "db";
-$logging = "stdout";
 
 # Require certain pages (members, admin, download) to use SSL
 $require_secure = 1;

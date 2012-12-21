@@ -7,6 +7,7 @@ sort = FIREARM_ID
 _R_DEFAULT_END
 
 _R_OPTION_START_UPDATE
+_R_HOOK_LOG_FIREARM_CHANGES
 update firearm set
 manufacturer = _R_MANUFACTURER,
 importer = _R_IMPORTER,
@@ -28,15 +29,13 @@ _R_QUERY_END_ONE
 
 <table align="center" cellpadding="5">
 <tr>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=firearm_id">Firearm ID</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=manufacturer">Manufacturer</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=importer">Importer</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=model">Model</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=serial_number">Serial Number</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=firearm_type">Firearm Type</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=caliber">Caliber</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=cabinet">Cabinet</b></a></td>
-<td><b><a href="adexpert?action=all_inventory_firearms&sort=tray">Tray</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=firearm_id">Firearm ID</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=manufacturer">Manufacturer</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=importer">Importer</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=model">Model</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=serial_number">Serial Number</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=firearm_type">Firearm Type</b></a></td>
+<td><b><a href="adexpert?action=all_sold_firearms&sort=caliber">Caliber</b></a></td>
 <td><b>Actions</b></td>
 </tr>
 
@@ -49,16 +48,12 @@ _R_REPEAT_START_ONE
 <td>_R_SERIAL_NUMBER</td>
 <td>_R_FIREARM_TYPE</td>
 <td>_R_CALIBER</td>
-<td>_R_CABINET</td>
-<td>_R_TRAY</td>
 <td><a href="/cgi-bin/adexpert?action=edit_firearm&firearm_id=_R_FIREARM_ID">edit</a>
 </td>
 </tr>
 _R_REPEAT_END_ONE
 
 </table>
-<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_firearm">new
-firearm</a></p>
 <p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
 </div>
 </body></html>
