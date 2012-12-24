@@ -22,7 +22,7 @@ _R_QUERY_END_THREE
 <h2 align=center>Edit Acquisition</h2>
 
 _R_REPEAT_START_THREE
-<form action="/cgi-bin/adexpert" method="POST">
+<form action="_R_SCRIPT_NAME" method="POST">
 <table align="center" cellpadding="5">
 
 <tr cols="2">
@@ -64,6 +64,7 @@ _R_REPEAT_END_TWO
 
 </form>
 _R_REPEAT_END_THREE
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Show <a href="_R_SCRIPT_NAME?action=all_edit_logs&filter_col1=record_type&filter_setting1=acquisition&filter_col2=record_id&filter_setting2=_R_ACQUISITION_ID">change history</a> for this record</p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

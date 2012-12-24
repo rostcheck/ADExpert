@@ -6,29 +6,12 @@ _R_DEFAULT_START
 sort = ACQUISITION_PRE_EDIT_ID
 _R_DEFAULT_END
 
-_R_OPTION_START_DELETE
-delete from acquisition_pre_edit where acquisition_pre_edit_id = _R_ACQUISITION_PRE_EDIT_ID
-_R_OPTION_END_DELETE
-
-_R_OPTION_START_SAVE
-insert into acquisition_pre_edit values(_R_ACQUISITION_PRE_EDIT_ID, _R_ACQUISITION_ID, _R_FIREARM_ID, _R_ACQUISITION_DATE, _R_TRADING_PARTNER_ID)
-_R_OPTION_END_SAVE
-
-_R_OPTION_START_UPDATE
-update acquisition_pre_edit set
-acquisition_id = _R_ACQUISITION_ID,
-firearm_id = _R_FIREARM_ID,
-acquisition_date = _R_ACQUISITION_DATE,
-trading_partner_id = _R_TRADING_PARTNER_ID
-where acquisition_pre_edit_id = _R_ACQUISITION_PRE_EDIT_ID
-_R_OPTION_END_UPDATE
-
 _R_QUERY_START_ONE
 select acquisition_pre_edit_id, acquisition_id, firearm_id, acquisition_date, trading_partner_id
 from acquisition_pre_edit
 order by _R_SORT
 _R_QUERY_END_ONE
-<h2 align=center>All acquisition_pre_edits</h2>
+<h2 align=center>All acquisition records pre-edit</h2>
 
 <table align="center" cellpadding="5">
 <tr>
@@ -37,7 +20,6 @@ _R_QUERY_END_ONE
 <td><b><a href="adexpert?action=all_acquisition_pre_edits&sort=firearm_id">Firearm ID</b></a></td>
 <td><b><a href="adexpert?action=all_acquisition_pre_edits&sort=acquisition_date">Acquisition Date</b></a></td>
 <td><b><a href="adexpert?action=all_acquisition_pre_edits&sort=trading_partner_id">Trading Partner ID</b></a></td>
-<td><b>Actions</b></td>
 </tr>
 
 _R_REPEAT_START_ONE
@@ -47,16 +29,10 @@ _R_REPEAT_START_ONE
 <td>_R_FIREARM_ID</td>
 <td>_R_ACQUISITION_DATE</td>
 <td>_R_TRADING_PARTNER_ID</td>
-<td><a href="/cgi-bin/adexpert?action=all_acquisition_pre_edits&option=delete&acquisition_pre_edit_id=_R_ACQUISITION_PRE_EDIT_ID&sort=_R_SORT">
-delete</a>
-&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_acquisition_pre_edit&acquisition_pre_edit_id=_R_ACQUISITION_PRE_EDIT_ID">edit</a>
-</td>
 </tr>
 _R_REPEAT_END_ONE
 
 </table>
-<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_acquisition_pre_edit">new
-acquisition_pre_edit</a></p>
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME?action=audit_reports">audit reports</a></p>
 </div>
 </body></html>

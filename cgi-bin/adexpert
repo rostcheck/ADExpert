@@ -14,13 +14,13 @@ use Text::Wrap;
 use instantframe;
 use ifuser;
 use ifcart;
-use ifconfig;
+use adexpert;
 
 # Secure the path
 $ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
 
 # Initialize framework, with our project and application name
-if_init("", "ADExpert");
+if_init("ADExpert.ifconfig");
 add_hook("log_trading_partner_changes", \&log_trading_partner_changes);
 add_hook("log_firearm_changes", \&log_firearm_changes);
 add_hook("log_acquisition_changes", \&log_acquisition_changes);
@@ -44,99 +44,3 @@ sub default()
   else {send_page("admin_main"); }
 }
 
-sub log_trading_partner_changes
-{
-  my $r_state = $_[0];
-  my $table_name = "trading_partner";
-  my $where_clause = "trading_partner_id = $r_state->{'trading_partner_id'}";
-  log_changes($r_state, $table_name, $where_clause);
-}
-
-sub log_firearm_changes
-{
-  my $r_state = $_[0];
-  my $table_name = "firearm";
-  my $where_clause = "firearm_id = $r_state->{'firearm_id'}";
-  log_changes($r_state, $table_name, $where_clause);
-}
-
-sub log_acquisition_changes
-{
-  my $r_state = $_[0];
-  my $table_name = "acquisition";
-  my $where_clause = "acquisition_id = $r_state->{'acquisition_id'}";
-  log_changes($r_state, $table_name, $where_clause);
-}
-
-sub log_disposition_changes
-{
-  my $r_state = $_[0];
-  my $table_name = "disposition";
-  my $where_clause = "disposition_id = $r_state->{'disposition_id'}";
-  log_changes($r_state, $table_name, $where_clause);
-}
-
-# Given a table name, return the columns for the table
-sub get_columns
-{
-  my $table_name = $_[0];
-  my @results;
-  
-  my $sql = "select column_name from information_schema.columns where table_name = ?";
-  my $sth = $dbh->prepare($sql) or errout("Error preparing statement $sql " . $dbh->errstr);
-  my @values = ($table_name);
-  $sth->execute(@values) or errout("Error executing statement $sql: " . $sth->errstr);
-  while (my @data = $sth->fetchrow_array()) {
-    push(@results, $data[0]);
-  }
-  $sth->finish;
-  return @results;
-}
-
-sub log_changes
-{
-  my $r_state = $_[0];
-  my $table_name = $_[1];
-  my $where_clause = $_[2];
-
-  my @columns = get_columns($table_name);
-  log_msg("found column names " . join ",", @columns);
-  my $r_old_values = query_fields_from_table(\@columns, $table_name, $where_clause);
-  # Story an unchanged  copy to the pre-edit table
-  store_to_db($table_name . "_pre_edit", \@columns, $r_old_values);
-  my $change_msg = "User $r_state->{'user_email'} changed ";
-  foreach my $column(@columns) {
-    my $old_value = $r_old_values->{$column};
-    my $new_value = $r_state->{$column};
-    if ($old_value ne $new_value) {
-      $change_msg .= "$column from \'$old_value\' to \'$new_value\', ";
-    }
-  }
-  chop($change_msg); chop($change_msg);
-  my ($admin_id, $login_id, $user_password) = admin_info_by_email($r_state->{'user_email'});
-  my $sql = "insert into edit_log(edit_date, edit_time, admin_id, notes) values (CURRENT_DATE, CURRENT_TIME, ?, ?)";
-  my @values = ($admin_id, $change_msg);
-  quick_sql_cmd($sql, \@values);
-}
-
-# Given a reference to a list of fields, a DB table name, and a where clause,
-# return a reference to a hash containing the field values from the table row.
-sub query_fields_from_table
-{
-  my $r_fields = $_[0];
-  my $table_name = $_[1];
-  my $where_clause = $_[2];
-
-  my $sql = "select ";
-  foreach my $field(@$r_fields) {
-    $sql .= "$field, ";
-  }
-  chop($sql); chop($sql); # clip trailing ","
-  $sql .= " from $table_name where $where_clause";
-  my @values = quick_sql_query($sql);
-  my %result;
-  foreach my $field(@$r_fields) {
-    $result{$field} = shift(@values);
-  }
-  return \%result;
-}

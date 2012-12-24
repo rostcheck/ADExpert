@@ -3,7 +3,7 @@ _R_NAVBAR
 <div class="pagecontent">
 <h2 align=center>Add a new trading partner</h2>
 
-<form action="/cgi-bin/adexpert" method="POST">
+<form action="_R_SCRIPT_NAME" method="POST">
 <table align="center" cellpadding="5">
 
 <tr cols="2">
@@ -14,7 +14,7 @@ maxlength="40"></td>
 <tr cols="2">
 <td align="right"><b>FFL License Number</b></td>
 <td align="left"><input type="text" name="ffl_license_number" size="40"
-maxlength="40" placeholder="1-23-456-78-9A-12345" pattern="[\w\d]{1}-[\w\d]-{2}-[\w\d]{3}-[\w\d]{2}-[\w\d]{2}-[\w\d]{5}"></td>
+maxlength="40" placeholder="1-23-456-78-9A-12345" pattern="[\w\d]{1}-[\w\d]{2}-[\w\d]{3}-[\w\d]{2}-[\w\d]{2}-[\w\d]{5}"></td>
 </tr>
 <tr cols="2">
 <td align="right"><b>Premises Address1</b></td>
@@ -93,6 +93,6 @@ maxlength="40"></td>
 <input type="hidden" name="option" value="save">
 
 </form>
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

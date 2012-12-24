@@ -4,56 +4,43 @@ _R_NAVBAR
 
 _R_DEFAULT_START
 sort = EDIT_LOG_ID
+filter_col1 = 1
+filter_setting1 = 1
+filter_col2 = 1
+filter_setting2 = 1
 _R_DEFAULT_END
 
-_R_OPTION_START_DELETE
-delete from edit_log where edit_log_id = _R_EDIT_LOG_ID
-_R_OPTION_END_DELETE
-
-_R_OPTION_START_SAVE
-insert into edit_log values(_R_EDIT_LOG_ID, _R_EDIT_DATE, _R_ADMIN_ID, _R_NOTES)
-_R_OPTION_END_SAVE
-
-_R_OPTION_START_UPDATE
-update edit_log set
-edit_date = _R_EDIT_DATE,
-admin_id = _R_ADMIN_ID,
-notes = _R_NOTES
-where edit_log_id = _R_EDIT_LOG_ID
-_R_OPTION_END_UPDATE
-
 _R_QUERY_START_ONE
-select edit_log_id, edit_date, admin_id, notes
+select edit_log_id, edit_date, edit_time, record_type, record_id, admin_id, notes
 from edit_log
+where _RX_FILTER_COL1 = _R_FILTER_SETTING1
+and _RX_FILTER_COL2 = _R_FILTER_SETTING2
 order by _R_SORT
 _R_QUERY_END_ONE
-<h2 align=center>All edit_logs</h2>
+<h2 align=center>View edit_logs</h2>
 
 <table align="center" cellpadding="5">
 <tr>
-<td><b><a href="adexpert?action=all_edit_logs&sort=edit_log_id">Edit Log ID</b></a></td>
-<td><b><a href="adexpert?action=all_edit_logs&sort=edit_date">Edit Date</b></a></td>
-<td><b><a href="adexpert?action=all_edit_logs&sort=admin_id">Admin ID</b></a></td>
-<td><b><a href="adexpert?action=all_edit_logs&sort=notes">Notes</b></a></td>
-<td><b>Actions</b></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=edit_log_id">Edit Log ID</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=edit_date">Edit Date</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=edit_time">Edit Time</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=record_type">Record Type</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=record_id">Record ID</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_edit_logs&sort=notes">Notes</b></a></td>
 </tr>
 
 _R_REPEAT_START_ONE
 <tr>
 <td>_R_EDIT_LOG_ID</td>
 <td>_R_EDIT_DATE</td>
-<td>_R_ADMIN_ID</td>
+<td>_R_EDIT_TIME</td>
+<td>_R_RECORD_TYPE</td>
+<td><a href="_R_SCRIPT_NAME?action=edit__R_RECORD_TYPE&_R_RECORD_TYPE_id=_R_RECORD_ID">_R_RECORD_ID</a></td>
 <td>_R_NOTES</td>
-<td><a href="/cgi-bin/adexpert?action=all_edit_logs&option=delete&edit_log_id=_R_EDIT_LOG_ID&sort=_R_SORT">
-delete</a>
-&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_edit_log&edit_log_id=_R_EDIT_LOG_ID">edit</a>
-</td>
 </tr>
 _R_REPEAT_END_ONE
 
 </table>
-<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_edit_log">new
-edit_log</a></p>
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

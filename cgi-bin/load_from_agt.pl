@@ -3,7 +3,6 @@
 # setting the firearms, trading partners, and transactions
 use ACE;
 use instantframe;
-use ifconfig;
 use FirearmLoader;
 use AcquisitionTPLoader;
 use DispositionTPLoader;
@@ -11,8 +10,8 @@ use AcquisitionLoader;
 use DispositionLoader;
 
 init_ace();
-if_init("", "ADExpert");
-$logging = "stdout";
+if_init("ADExpert.ifconfig");
+$r_config->{'logging'} = "stdout";
 #$test_mode = 1;
 
 if (@ARGV < 1) { die "Usage: load_from_agt.pl <spreadsheet from Auto Gun Tracker>"; }

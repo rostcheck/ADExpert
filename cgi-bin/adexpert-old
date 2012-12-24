@@ -20,7 +20,7 @@ use adexpert;
 $ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
 
 # Initialize framework, with our project and application name
-if_init("ADExpert.ifconfig");
+if_init("ADExpert-old.ifconfig");
 add_hook("log_trading_partner_changes", \&log_trading_partner_changes);
 add_hook("log_firearm_changes", \&log_firearm_changes);
 add_hook("log_acquisition_changes", \&log_acquisition_changes);

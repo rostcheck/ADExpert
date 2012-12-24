@@ -11,7 +11,11 @@ delete from disposition where disposition_id = _R_DISPOSITION_ID
 _R_OPTION_END_DELETE
 
 _R_OPTION_START_SAVE
-insert into disposition values(_R_DISPOSITION_ID, _R_DISPOSITION_DATE, _R_ACQUISITION_ID, _R_TRADING_PARTNER_ID, _R_4473_NUMBER, _R_LOST_STOLEN_ATF_INCIDENT_NUMBER, _R_LOST_STOLEN_PD_INCIDENT_NUMBER)
+insert into disposition values(_R_DISPOSITION_ID, _R_DISPOSITION_DATE, _R_ACQUISITION_ID, _R_TRADING_PARTNER_ID, _R_4473_NUMBER, _R_LOST_STOLEN_ATF_INCIDENT_NUMBER, _R_LOST_STOLEN_PD_INCIDENT_NUMBER);
+update firearm set cabinet = '', tray = ''
+where firearm_id = (
+select firearm_id from acquisition where acquisition_id = _R_ACQUISITION_ID
+)
 _R_OPTION_END_SAVE
 
 _R_OPTION_START_UPDATE
@@ -60,16 +64,16 @@ _R_REPEAT_START_ONE
 <td>_R_SERIAL_NUMBER</td>
 <td>_R_NAME</td>
 <td>_R_4473_NUMBER</td>
-<td><a href="/cgi-bin/adexpert?action=all_dispositions&option=delete&disposition_id=_R_DISPOSITION_ID&sort=_R_SORT">
+<td><a href="_R_SCRIPT_NAME?action=all_dispositions&option=delete&disposition_id=_R_DISPOSITION_ID&sort=_R_SORT">
 delete</a>
-&nbsp;&nbsp;&nbsp; <a href="/cgi-bin/adexpert?action=edit_disposition&disposition_id=_R_DISPOSITION_ID">edit</a>
+&nbsp;&nbsp;&nbsp; <a href="_R_SCRIPT_NAME?action=edit_disposition&disposition_id=_R_DISPOSITION_ID">edit</a>
 </td>
 </tr>
 _R_REPEAT_END_ONE
 
 </table>
-<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_disposition">new
+<p align="center">Add a <a href="_R_SCRIPT_NAME?action=new_disposition">new
 disposition</a></p>
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

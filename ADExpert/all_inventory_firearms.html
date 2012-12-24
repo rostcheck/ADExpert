@@ -20,7 +20,8 @@ serial_number = _R_SERIAL_NUMBER,
 firearm_type = _R_FIREARM_TYPE,
 caliber = _R_CALIBER,
 cabinet = _R_CABINET,
-tray = _R_TRAY
+tray = _R_TRAY,
+notes = _R_NOTES
 where firearm_id = _R_FIREARM_ID
 _R_OPTION_END_UPDATE
 
@@ -56,14 +57,14 @@ _R_REPEAT_START_ONE
 <td>_R_CALIBER</td>
 <td>_R_CABINET</td>
 <td>_R_TRAY</td>
-<td><a href="/cgi-bin/adexpert?action=edit_firearm&firearm_id=_R_FIREARM_ID">edit</a>
+<td><a href="_R_SCRIPT_NAME?action=edit_firearm&firearm_id=_R_FIREARM_ID">edit</a>
 </td>
 </tr>
 _R_REPEAT_END_ONE
 
 </table>
-<p align="center">Add a <a href="/cgi-bin/adexpert?action=new_firearm">new
+<p align="center">Add a <a href="_R_SCRIPT_NAME?action=new_firearm">new
 firearm</a></p>
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

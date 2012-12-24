@@ -9,7 +9,7 @@ _R_QUERY_END_ONE
 _R_REPEAT_START_ONE
 _R_TEXT
 _R_REPEAT_END_ONE
-<FORM action="/cgi-bin/makegunlisting" method="POST">
+<FORM action="_R_SCRIPT_NAME" method="POST">
 <INPUT type="hidden" name="serial_number" value="_R_SERIAL_NUMBER">
 <INPUT type="hidden" name="model" value="_R_MODEL">
 <INPUT type="hidden" name="hammer" value="_R_HAMMER">
@@ -24,6 +24,6 @@ _R_REPEAT_END_ONE
 <INPUT type="hidden" name="action" value="download">
 <CENTER><INPUT type=submit value="Download Listing"></CENTER>
 </FORM>
-<P align="center">Return to <a href="/cgi-bin/makegunlisting">main screen</a></P>
+<P align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></P>
 </DIV>
 </BODY></HTML>

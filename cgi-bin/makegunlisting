@@ -15,14 +15,12 @@ use Text::Wrap;
 use instantframe;
 use ifuser;
 use ifcart;
-use ifconfig;
 
 # Secure the path
 $ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
 
 # Initialize framework, with our project and application name
-$logging = "";
-if_init("", "makegunlisting");
+if_init("makegunlisting.ifconfig");
 
 # Authenticate
 #if (! admin_login()) { send_page("login_needed"); }
@@ -57,7 +55,7 @@ sub download
 {
   set_descriptions();
   my $download_name = "$cleanvar{'serial_number'}" . ".txt";
-  download_page(get_template_name(), "html", $download_name);
+  download_page(get_template_name(), $download_name);
 }
 
 # Figure out what the template name shoud be from the model. If no appropriate
@@ -68,7 +66,7 @@ sub get_template_name
   $model =~ m/([\w\d]+)\-/;
   if ($1) { $model = $1; }
   $model =~ s/ /_/g;
-  my $template_name = $model . "_template";
+  my $template_name = $model . "_template.html";
   if (! check_template($template_name)) { 
     errout("Could not find a template for model $model"); 
   }
@@ -79,7 +77,7 @@ sub get_template_name
 # TODO: This should become a DB table someday
 sub set_descriptions
 {
-  prepare_page("view_listing"); # Load all fields from serial_number first
+  prepare_page("view_listing.html"); # Load all fields from serial_number first
 
   if ($cleanvar{'hammer'} eq "DAO") {
     $cleanvar{'hammer_description'} = "bobbed hammer allowing double-action only usage, for maximum simplicity of operation";

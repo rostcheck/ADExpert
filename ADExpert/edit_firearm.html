@@ -10,7 +10,7 @@ _R_QUERY_END_ONE
 <h2 align=center>Edit firearm</h2>
 
 _R_REPEAT_START_ONE
-<form action="/cgi-bin/adexpert" method="POST">
+<form action="_R_SCRIPT_NAME" method="POST">
 <table align="center" cellpadding="5">
 
 <tr cols="2">
@@ -107,6 +107,7 @@ maxlength="40" value="_R_NOTES"></td>
 
 </form>
 _R_REPEAT_END_ONE
-<p align="center">Return to <a href="/cgi-bin/adexpert">main screen</a></p>
+<p align="center">Show <a href="_R_SCRIPT_NAME?action=all_edit_logs&filter_col1=record_type&filter_setting1=firearm&filter_col2=record_id&filter_setting2=_R_FIREARM_ID">change history</a> for this record</p>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

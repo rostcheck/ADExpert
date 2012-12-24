@@ -1,0 +1,47 @@
+# Site setup
+application = ADExpert
+base_dir = /home/global07/www/h2arms.com # Install dir
+html_base_dir = $base_dir #/public_html
+template_dir = $html_base_dir/$application
+cgi_path = /cgi-bin
+secure_dir = $base_dir/protected
+sendmail = sendmail
+
+# Database login info
+database = global07_expert
+db_user = global07_expert
+db_password = 8XlS[[{3wR)v
+
+# Domain
+domain = h2arms.com
+site_name = www.$domain
+
+# Names and emails
+org_name = h2arms.com
+mail_send_addr = admin@$domain
+mail_notify_addr = admin@$domain
+
+# Home dir (on the server)
+home_dir = $base_dir
+
+use_navbar = 0 # If true, load the navbar template
+cookie_duration = +7d # Duration of cookies (if , skip cookies)
+
+# Within this many days of subscription end, warn user (0 to disable)
+subscription_expiry_warn_days = 30 
+
+# Other directory settings usually these defaults (relative to the home_dir)
+# are ok
+html_root_dir = $html_base_dir
+output_template_dir = $html_root_dir
+cgi_dir = $html_root_dir/cgi-bin
+url_base = http://www.$domain/cgi-bin
+secure_url_base = https://www.$domain/cgi-bin
+if_template_dir = $home_dir/templates
+
+# Set to: db, stdout, or don't set
+#logging = db
+
+# Require certain pages (members, admin, download) to use SSL
+require_secure = 1
+
