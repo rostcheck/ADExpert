@@ -15,7 +15,30 @@ use ifuser;
 $VERSION = 1.00;
 @ISA = qw(Exporter);
 
-@EXPORT = qw(&log_changes);
+@EXPORT = qw(&changed_columns &log_changes);
+
+# Given a reference to a hash containing new state (usually a copy of 
+# # %cleanvar) and a table name, return a list of all the columns that changed.
+sub changed_columns
+{
+  my $r_state = $_[0];
+  my $table_name = $_[1];
+  my $id_field = $table_name . "_id";
+  my $id_field_value = $r_state->{$id_field};
+
+  my $where_clause = "$id_field = $id_field_value";
+  my @columns = get_columns($table_name);
+  my $r_old_values = query_fields_from_table(\@columns, $table_name, $where_clause);
+  my @changed_columns;
+  foreach my $column(@columns) {
+    my $old_value = $r_old_values->{$column};
+    my $new_value = $r_state->{$column};
+    if ($old_value ne $new_value) {
+      push(@changed_columns, $column);
+    }
+  }
+  return @changed_columns;
+}
 
 # Given a reference to a hash containing new state (usually a copy of 
 # %cleanvar) and a table name, log to the database what the changes were
@@ -29,7 +52,7 @@ sub log_changes
   my $where_clause = "$id_field = $id_field_value";
   my @columns = get_columns($table_name);
   my $r_old_values = query_fields_from_table(\@columns, $table_name, $where_clause);
-  # Story an unchanged  copy to the pre-edit table
+  # Story an unchanged copy to the pre-edit table
   store_to_db($table_name . "_pre_edit", \@columns, $r_old_values);
   my $change_msg = "User $r_state->{'user_email'} changed ";
   foreach my $column(@columns) {

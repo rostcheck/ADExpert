@@ -3,7 +3,7 @@ _R_NAVBAR
 _R_QUERY_START_ONE
 select firearm_id, manufacturer, importer, model, serial_number, firearm_type, caliber, cabinet, tray, hammer, butt, grips, parts, grade, lockup, trigger_type, notes
 from firearm
-where firearm_ID = _R_FIREARM_ID
+where firearm_id = _R_FIREARM_ID
 _R_QUERY_END_ONE
 
 <div class="pagecontent">
@@ -102,7 +102,7 @@ maxlength="40" value="_R_NOTES"></td>
 </table>
 <center><input type=submit value="Save Changes"></center>
 <input type="hidden" name="action" value="all_inventory_firearms">
-<input type="hidden" name="firearm_id" value="_R_firearm_ID">
+<input type="hidden" name="firearm_id" value="_R_FIREARM_ID">
 <input type="hidden" name="option" value="update">
 
 </form>

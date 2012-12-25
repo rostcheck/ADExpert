@@ -1,0 +1,46 @@
+#!/usr/bin/perl -w
+# ifappbuilder
+# Instant Framework app builder
+
+# Date     Who     Change
+# -------- ------- -------------------------------------------------------
+# 08/26/10 davidr  Rebuilt from GAS admin
+
+use strict;
+use diagnostics;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+use Text::Wrap;
+use instantframe;
+use ifuser;
+use ifcart;
+use adexpert;
+
+# Secure the path
+$ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
+
+# Initialize framework, with our project and application name
+if_init("ADExpert-test.ifconfig");
+add_hook("log_trading_partner_changes", \&log_trading_partner_changes);
+add_hook("log_firearm_changes", \&log_firearm_changes);
+add_hook("log_acquisition_changes", \&log_acquisition_changes);
+add_hook("log_disposition_changes", \&log_disposition_changes);
+
+# Authenticate
+if (! admin_login()) { send_page("login_needed"); }
+else { default(); }
+
+# Default start screen
+sub default()
+{
+  log_msg("default()");
+  if ($cleanvar{'action'}) { 
+    if ($cleanvar{'action'} eq "logout") { 
+      logout('admin'); 
+      send_page("login_needed"); 
+    }
+    else { send_page($cleanvar{'action'}); }
+  }
+  else {send_page("admin_main"); }
+}
+
