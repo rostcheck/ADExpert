@@ -1,5 +1,7 @@
 # Site setup
 application = ADExpert
+site_title = ADExpert - Old Book
+css_style = adexpert-old-style.css
 base_dir = /home/global07/www/h2arms.com # Install dir
 html_base_dir = $base_dir #/public_html
 template_dir = $html_base_dir/$application

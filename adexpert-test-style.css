@@ -1,0 +1,217 @@
+BODY {
+	background-color : White;
+	color : Black;
+	font-size: 14px;
+}
+	
+body, td, p, div {
+	font-size : 14px;
+}
+	
+body, div, p, th, td, form, h1, h2, h3, h4, h5, h6, li, ul, ol {
+	font-family : Arial, Helvetica, sans-serif;
+}	
+
+.pagecontent {
+	padding : 7px;
+	padding-left : 7px;
+	padding-bottom : 7px;
+	text-align: center;
+}
+
+.normaltextpage {
+	padding : 7px;
+	padding-left : 7px;
+	padding-bottom : 7px;
+}
+
+.box {
+	background-color : Silver;
+	border : 0.1px solid LightSlateGray;
+	border-bottom : 1px solid LightSlateGray;
+	border-left : 1px solid LightSlateGray;
+	border-right : 1px solid LightSlateGray;
+	border-top : 1px solid LightSlateGray;	
+	margin : 0px;
+	padding : 5px;
+	}
+
+.topbox {
+	background-color : LightSlateGray;
+	color : White;
+	margin-left : 0px;
+	margin-right : 0px;
+	}
+
+
+.navbar {
+	border : 0px solid LightSlateGray;
+	color : White;
+	padding : 1px 1px;
+	border-left-width : 0px;
+	border-right-width : 0px;
+	font-size : 15px;
+	margin-top : 0px;
+	margin-bottom : 0px;
+	background : Silver;
+	text-align : center;	
+	/* for NS4 */
+	border : 0.1px solid LightSlateGray;
+	border-bottom : 1px solid LightSlateGray;
+	margin : 0;
+	}
+
+.engage {
+	font-style : italic;
+	font-weight : bold;
+	}
+
+
+TABLE {
+	margin-left : auto;
+	margin-right : auto;
+	border-spacing: 5px;
+	text-align : left;
+      }
+
+A:LINK {
+	text-decoration : none;
+	color : Purple;
+}
+
+A:VISITED {
+	text-decoration : none;
+	color : Purple;
+}
+
+.emphasis {
+	font-weight : bold;
+	padding : 0px;
+	margin-bottom : 0px;
+}
+
+A:HOVER {
+	color : LightSlateGray;
+}
+
+TD {
+	font-size : 14px;
+}
+
+.keyword {
+	font-weight : bold;
+}
+
+H2 {
+	font-weight : normal;
+	font-size : 130%;
+	margin-left : 0px;
+}
+	
+h3 { font-size : 115%; }
+	
+.mainhead {
+	font-family : "Lucida Calligraphy", "Times New Roman", cursive, serif;
+	font-style : italic;
+	border : 0.1px solid LightSlateGray;	
+	background-color : LightSlateGray;
+	color : White;
+	margin : 0px;
+	font-size : 24px;
+	padding : 6px;	
+	font-weight : normal;
+	padding-top : 30px;
+	padding-left : 30px;
+}
+
+.ctmainhead {
+	font-family : "Lucida Calligraphy", "Times New Roman", cursive, serif;
+	font-style : italic;
+	border : 0.1px solid LightSlateGray;	
+	background-color : LightSlateGray;
+	color : White;
+	margin : 0px;
+	font-size : 24px;
+	padding : 2px;	
+	font-weight : normal;
+}
+
+.subhead {
+	font-weight : normal;
+	background-color : LightSlateGray;
+	border : 0.1px solid LightSlateGray;		
+	color : White;	
+	margin : 0px;
+	font-style : normal;
+	font-size : 15px;
+	padding : 2px;
+	padding-top : 8px;
+	padding-bottom : 2px;
+	font-family : Arial, sans-serif;
+	text-align : center;	
+}
+
+.topsubhead {
+	font-weight : normal;
+	background-color : LightSlateGray;
+	border : 0.1px solid LightSlateGray;		
+	color : White;	
+	margin : 0px;
+	font-style : normal;
+	font-size : 15px;
+	padding : 2px;
+	padding-top : 16px;
+	padding-bottom : 6px;
+	font-family : Arial, sans-serif;
+	padding-left : 175px;
+	text-align : left;	
+}
+
+
+.bottomsubhead {
+	font-weight : normal;
+	background-color : LightSlateGray;
+	border : 0.1px solid LightSlateGray;		
+	color : White;	
+	margin : 0px;
+	font-style : normal;
+	font-size : 15px;
+	padding : 2px;
+	padding-top : 6px;
+	padding-bottom : 6px;
+	padding-right : 45px;
+	font-family : Arial, sans-serif;
+	text-align : right;
+}
+
+div.headline {
+	background : LightSlateGray;
+        height : 100px;
+	text-align : center;
+	/* for NS4 */
+	border : 0.1px solid LightSlateGray;
+	color : #FFFFFF;
+	padding : 8px 14px;	
+	margin : 0;
+	/* for NS4 */
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.smaller {
+	font-size : 12px;
+}
+
+.error {
+	color: red;
+}
