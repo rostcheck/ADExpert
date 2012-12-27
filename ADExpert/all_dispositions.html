@@ -30,6 +30,18 @@ lost_stolen_pd_incident_number = _R_LOST_STOLEN_PD_INCIDENT_NUMBER
 where disposition_id = _R_DISPOSITION_ID
 _R_OPTION_END_UPDATE
 
+_R_OPTION_START_CLOSEOUT
+insert into disposition(disposition_date, acquisition_id, trading_partner_id, 
+4473_number, lost_stolen_atf_incident_number, lost_stolen_pd_incident_number)
+select _R_DISPOSITION_DATE, a.acquisition_id, _R_TRADING_PARTNER_ID, 
+_R_4473_NUMBER, _R_LOST_STOLEN_ATF_INCIDENT_NUMBER, 
+_R_LOST_STOLEN_PD_INCIDENT_NUMBER
+from acquisition a 
+left join disposition d
+on a.acquisition_id = d.acquisition_id
+where d.disposition_id is null
+_R_OPTION_END_CLOSEOUT
+
 _R_QUERY_START_ONE
 select disposition_id, disposition_date, d.acquisition_id, d.trading_partner_id, f.manufacturer, f.model, f.serial_number, tp.name, tp.ffl_license_number, 4473_number
 from disposition d

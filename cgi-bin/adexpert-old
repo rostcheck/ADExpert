@@ -25,6 +25,7 @@ add_hook("log_trading_partner_changes", \&log_trading_partner_changes);
 add_hook("log_firearm_changes", \&log_firearm_changes);
 add_hook("log_acquisition_changes", \&log_acquisition_changes);
 add_hook("log_disposition_changes", \&log_disposition_changes);
+add_hook("prep_ad_book_fields", \&prep_ad_book_fields);
 
 # Authenticate
 if (! admin_login()) { send_page("login_needed"); }

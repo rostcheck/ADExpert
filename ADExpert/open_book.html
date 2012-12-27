@@ -1,0 +1,39 @@
+_R_IFTOP
+_R_NAVBAR
+
+_R_QUERY_START_TWO
+select trading_partner_id, name, ffl_license_number
+from trading_partner
+order by name
+_R_QUERY_END_TWO
+<div class="pagecontent">
+<h2 align=center>Open book</h2>
+<p>Opening a book will create acquisitions for all unassigned firearms from the trading partner specified on the date specified.</p>
+<form action="_R_SCRIPT_NAME" method="POST">
+<table align="center" cellpadding="5">
+
+<tr cols="2">
+<td align="right"><b>Acquisition Date</b></td>
+<td align="left"><input type="text" name="acquisition_date" size="40"
+maxlength="40" placeholder="2012-01-12" required pattern="\d{4}-\d{2}-\d{2}"></td>
+</tr>
+<tr cols="2">
+<td align="right"><b>Trading Partner</b></td>
+<td>
+<select name="trading_partner_id">
+_R_REPEAT_START_TWO
+<option value="_R_TRADING_PARTNER_ID">_R_NAME _R_FFL_LICENSE_NUMBER</option>
+_R_REPEAT_END_TWO
+</select>
+</td>
+</tr>
+
+</table>
+<center><input type=submit value="Open book"></center>
+<input type="hidden" name="action" value="all_acquisitions">
+<input type="hidden" name="option" value="openup">
+
+</form>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
+</div>
+</body></html>

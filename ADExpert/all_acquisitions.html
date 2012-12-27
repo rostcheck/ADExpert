@@ -23,6 +23,15 @@ trading_partner_id = _R_TRADING_PARTNER_ID
 where acquisition_id = _R_ACQUISITION_ID
 _R_OPTION_END_UPDATE
 
+_R_OPTION_START_OPENUP
+insert into acquisition(firearm_id, acquisition_date, trading_partner_id)
+select f.firearm_id, _R_ACQUISITION_DATE, _R_TRADING_PARTNER_ID
+from firearm f
+left join acquisition a
+on f.firearm_id = a.firearm_id
+where a.acquisition_id is null
+_R_OPTION_END_OPENUP
+
 _R_QUERY_START_ONE
 select acquisition_id, a.firearm_id, f.serial_number, acquisition_date, a.trading_partner_id, tp.name
 from acquisition a

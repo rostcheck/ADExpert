@@ -1,0 +1,56 @@
+_R_IFTOP
+_R_NAVBAR
+<div class="pagecontent">
+
+_R_DEFAULT_START
+sort = FIREARM_ID
+_R_DEFAULT_END
+
+_R_QUERY_START_ONE
+select record_id, manufacturer, importer, model, serial_number, firearm_type,
+caliber, acquisition_date, acquisition_name, acquisition_ffl, 
+acquisition_address1, acquisition_city, acquisition_state, acquisition_zip, 
+disposition_date, disposition_name, disposition_ffl, 4473_number, 
+lost_stolen_atf_incident_number, lost_stolen_pd_incident_number, 
+disposition_address1, disposition_city, disposition_state, disposition_zip
+from ad_book_view
+order by record_id
+_R_QUERY_END_ONE
+<h2 align=center>Acquisition & Disposition Records</h2>
+
+<table align="center" cellpadding="5">
+<tr>
+<td><b>Firearm ID</b></td>
+<td><b>Manufacturer and Importer (if any)</b></td>
+<td><b>Model</b></td>
+<td><b>Serial Number</b></td>
+<td><b>Type</b></td>
+<td><b>Caliber or Gauge</b></td>
+<td><b>Date</b></td>
+<td><b>Name and Address or Name and License No.</b></td>
+<td><b>Date</b></td>
+<td><b>Name</b></td>
+<td><b>Address and License No. if licensee, or Form 4473 Serial Number if Forms 4473 filed numerically</b></td>
+</tr>
+
+_R_REPEAT_START_ONE
+_R_HOOK_PREP_AD_BOOK_FIELDS
+<tr>
+<td>_R_RECORD_ID</td>
+<td>_R_MANUFACTURER_OR_IMPORTER</td>
+<td>_R_MODEL</td>
+<td>_R_SERIAL_NUMBER</td>
+<td>_R_FIREARM_TYPE</td>
+<td>_R_CALIBER</td>
+<td>_R_ACQUISITION_DATE</td>
+<td>_R_ACQUISITION_INFO</td>
+<td>_R_DISPOSITION_DATE</td>
+<td>_R_DISPOSITION_NAME</td>
+<td>_R_DISPOSITION_INFO</td>
+</tr>
+_R_REPEAT_END_ONE
+
+</table>
+<p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
+</div>
+</body></html>
