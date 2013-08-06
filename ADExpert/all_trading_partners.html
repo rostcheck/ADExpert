@@ -41,16 +41,20 @@ select trading_partner_id, name, ffl_license_number, mailing_city, mailing_state
 from trading_partner
 order by _R_SORT
 _R_QUERY_END_ONE
+
+_R_QUERY_START_TWO
+select count(*) as record_count from trading_partner
+_R_QUERY_END_TWO
 <h2 align=center>All Trading Partners</h2>
 
 <table cellpadding="5">
 <tr>
-<td><b><a href="adexpert?action=all_trading_partners&sort=name">Name</b></a></td>
-<td><b><a href="adexpert?action=all_trading_partners&sort=ffl_license_number">FFL License Number</b></a></td>
-<td><b><a href="adexpert?action=all_trading_partners&sort=mailing_city">City</b></a></td>
-<td><b><a href="adexpert?action=all_trading_partners&sort=mailing_state">State</b></a></td>
-<td><b><a href="adexpert?action=all_trading_partners&sort=email">Email</b></a></td>
-<td><b><a href="adexpert?action=all_trading_partners&sort=phone">Phone</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=name">Name</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=ffl_license_number">FFL License Number</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=mailing_city">City</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=mailing_state">State</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=email">Email</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_trading_partners&sort=phone">Phone</b></a></td>
 <td><b>Actions</b></td>
 </tr>
 
@@ -68,8 +72,10 @@ delete</a>
 </td>
 </tr>
 _R_REPEAT_END_ONE
-
 </table>
+_R_REPEAT_START_TWO
+Found _R_RECORD_COUNT records
+_R_REPEAT_END_TWO
 <p align="center">Add a <a href="_R_SCRIPT_NAME?action=new_trading_partner">new
 trading_partner</a></p>
 <p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>

@@ -125,8 +125,7 @@ h3 { font-size : 115%; }
 }
 
 .ctmainhead {
-	font-family : "Lucida Calligraphy", "Times New Roman", cursive, serif;
-	font-style : italic;
+	font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
 	border : 0.1px solid Red;	
 	background-color : Red;
 	color : White;
@@ -189,10 +188,9 @@ div.headline {
         height : 100px;
 	text-align : center;
 	/* for NS4 */
-	border : 0.1px solid Red;
 	color : #FFFFFF;
 	padding : 8px 14px;	
-	margin : 0;
+	margin : 0px;
 	/* for NS4 */
 }
 

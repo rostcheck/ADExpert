@@ -1,6 +1,6 @@
 # Site setup
 application = ADExpert
-site_title = ADExpert
+site_title = H2 Arms - License 5-75-07642 (Type 1, Open)
 css_style = adexpert-style.css
 base_dir = /home/global07/www/h2arms.com # Install dir
 html_base_dir = $base_dir #/public_html

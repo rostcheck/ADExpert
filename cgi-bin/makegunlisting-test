@@ -1,0 +1,92 @@
+#!/usr/bin/perl -w
+# ifappbuilder
+# Instant Framework app builder
+
+# Date     Who     Change
+# -------- ------- -------------------------------------------------------
+# 08/26/10 davidr  Rebuilt from GAS admin
+# 05/07/12 davidr  Customized save to fill in text
+
+use strict;
+use diagnostics;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+use Text::Wrap;
+use instantframe;
+use ifuser;
+use ifcart;
+
+# Secure the path
+$ENV{PATH} = "/usr/local/bin:/bin:/usr/bin:/usr/sbin";
+
+# Initialize framework, with our project and application name
+if_init("makegunlisting-test.ifconfig");
+
+# Authenticate
+#if (! admin_login()) { send_page("login_needed"); }
+#else { default(); }
+default();
+
+# Default start screen
+sub default()
+{
+  log_msg("default()");
+  if ($cleanvar{'action'}) { 
+    if ($cleanvar{'action'} eq "view_listing") { make_listing(); }
+    elsif ($cleanvar{'action'} eq "download") { download(); }
+    #if ($cleanvar{'action'} eq "logout") { 
+    #  logout('admin'); 
+    #  send_page("login_needed"); 
+    #}
+    #else { send_page($cleanvar{'action'}); }
+    send_page($cleanvar{'action'});
+  }
+  else {send_page("admin_main"); }
+}
+
+# Make a listing, using the template
+sub make_listing {
+  set_descriptions();
+  $cleanvar{'text'} = prepare_page(get_template_name(), "html");
+}
+
+# trigger a download of the listing to the browser
+sub download
+{
+  set_descriptions();
+  my $download_name = "$cleanvar{'serial_number'}" . ".txt";
+  download_page(get_template_name(), $download_name);
+}
+
+# Figure out what the template name shoud be from the model. If no appropriate
+# template exists, error out.
+sub get_template_name
+{
+  my $model = $cleanvar{'model'};
+  $model =~ m/([\w\d]+)\-/;
+  if ($1) { $model = $1; }
+  $model =~ s/ /_/g;
+  my $template_name = $model . "_template.html";
+  if (! check_template($template_name)) { 
+    errout("Could not find a template for model $model"); 
+  }
+  return $template_name
+}
+
+# Set the extended text descriptions. 
+# TODO: This should become a DB table someday
+sub set_descriptions
+{
+  prepare_page("view_listing.html"); # Load all fields from serial_number first
+
+  if ($cleanvar{'hammer'} eq "DAO") {
+    $cleanvar{'hammer_description'} = "bobbed hammer allowing double-action only usage, for maximum simplicity of operation";
+  }
+  else {
+    $cleanvar{'hammer_description'} = "standard external hammer";
+  }
+  if ($cleanvar{'trigger_type'} eq "smooth") {
+    $cleanvar{'trigger_description'} = "smooth combat";
+  }
+  else { $cleanvar{'trigger_description'} = "narrow grooved"; }
+}

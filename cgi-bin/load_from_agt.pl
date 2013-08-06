@@ -10,8 +10,8 @@ use AcquisitionLoader;
 use DispositionLoader;
 
 init_ace();
-if_init("ADExpert.ifconfig");
-$r_config->{'logging'} = "stdout";
+if_init("ADExpert-old.ifconfig");
+#$r_config->{'logging'} = "stdout";
 #$test_mode = 1;
 
 if (@ARGV < 1) { die "Usage: load_from_agt.pl <spreadsheet from Auto Gun Tracker>"; }

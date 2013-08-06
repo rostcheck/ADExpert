@@ -163,3 +163,21 @@ join acquisition a
 on a.firearm_id = f.firearm_id
 join disposition d
 on d.acquisition_id = a.acquisition_id;
+
+create or replace view ad_book_view as
+select a.acquisition_id as record_id, f.manufacturer, f.importer, f.model, f.serial_number, f.firearm_type, f.caliber, a.acquisition_date, atp.name as acquisition_name, atp.ffl_license_number as acquisition_ffl, 
+atp.mailing_address1 as acquisition_address1, atp.mailing_city as acquisition_city, 
+atp.mailing_state as acquisition_state, atp.mailing_zip as acquisition_zip, d.disposition_date, 
+dtp.name as disposition_name, dtp.ffl_license_number as disposition_ffl, d.4473_number, d.lost_stolen_atf_incident_number, d.lost_stolen_pd_incident_number, 
+dtp.mailing_address1 as disposition_address1, dtp.mailing_city as disposition_city,
+dtp.mailing_state as disposition_state, dtp.mailing_zip as disposition_zip
+from firearm f
+join acquisition a
+on a.firearm_id = f.firearm_id
+join trading_partner atp
+on atp.trading_partner_id = a.trading_partner_id
+left join disposition d
+on a.acquisition_id = d.acquisition_id
+left join trading_partner dtp
+on dtp.trading_partner_id = d.trading_partner_id;
+

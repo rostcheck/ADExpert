@@ -125,8 +125,7 @@ h3 { font-size : 115%; }
 }
 
 .ctmainhead {
-	font-family : "Lucida Calligraphy", "Times New Roman", cursive, serif;
-	font-style : italic;
+	font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
 	border : 0.1px solid Navy;	
 	background-color : Navy;
 	color : White;

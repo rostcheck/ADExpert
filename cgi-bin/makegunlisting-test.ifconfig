@@ -1,16 +1,17 @@
-# Site setup
-application = ADExpert
-site_title = H2 Arms - License 5-75-06420 (Type 7, Closed) 
-css_style = adexpert-old-style.css
+# Site setu
+application = makegunlisting
+site_title = MakeGunListing - Test Instance
+css_style = adexpert-test-style.css
 base_dir = /home/global07/www/h2arms.com # Install dir
 html_base_dir = $base_dir #/public_html
 template_dir = $html_base_dir/$application
 cgi_path = /cgi-bin
 secure_dir = $base_dir/protected
 sendmail = sendmail
+export_dir = $template_dir/exports
 
 # Database login info
-database = global07_expert_old
+database = global07_expert_test
 db_user = global07_expert
 db_password = 8XlS[[{3wR)v
 
@@ -42,7 +43,7 @@ secure_url_base = https://www.$domain/cgi-bin
 if_template_dir = $home_dir/templates
 
 # Set to: db, stdout, or don't set
-#logging = db
+logging = db
 
 # Require certain pages (members, admin, download) to use SSL
 require_secure = 1

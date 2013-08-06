@@ -25,20 +25,23 @@ select firearm_id, manufacturer, importer, model, serial_number, firearm_type, c
 from noninventory_firearm
 order by _R_SORT
 _R_QUERY_END_ONE
+
+_R_QUERY_START_TWO
+select count(*) as record_count from noninventory_firearm
+_R_QUERY_END_TWO
 <h2 align=center>All disposed firearms</h2>
 
 <table align="center" cellpadding="5">
 <tr>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=firearm_id">Firearm ID</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=manufacturer">Manufacturer</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=importer">Importer</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=model">Model</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=serial_number">Serial Number</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=firearm_type">Firearm Type</b></a></td>
-<td><b><a href="adexpert?action=all_sold_firearms&sort=caliber">Caliber</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=firearm_id">Firearm ID</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=manufacturer">Manufacturer</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=importer">Importer</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=model">Model</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=serial_number">Serial Number</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=firearm_type">Firearm Type</b></a></td>
+<td><b><a href="_R_SCRIPT_NAME?action=all_sold_firearms&sort=caliber">Caliber</b></a></td>
 <td><b>Actions</b></td>
 </tr>
-
 _R_REPEAT_START_ONE
 <tr>
 <td>_R_FIREARM_ID</td>
@@ -52,8 +55,10 @@ _R_REPEAT_START_ONE
 </td>
 </tr>
 _R_REPEAT_END_ONE
-
 </table>
+_R_REPEAT_START_TWO
+Found _R_RECORD_COUNT records
+_R_REPEAT_END_TWO
 <p align="center">Return to <a href="_R_SCRIPT_NAME">main screen</a></p>
 </div>
 </body></html>

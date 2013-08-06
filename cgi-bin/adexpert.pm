@@ -44,6 +44,8 @@ sub prep_ad_book_fields
     $return_hash{'disposition_info'} = "$r_state->{'disposition_address1'}<br>$r_state->{'disposition_city'}, $r_state->{'disposition_state'} $r_state->{'disposition_zip'}";
   }
   else { $return_hash{'disposition_info'} = ""; }
+  $return_hash{'acquisition_date'} = short_date_from_mysql_date($r_state->{'acquisition_date'});
+  $return_hash{'disposition_date'} = short_date_from_mysql_date($r_state->{'disposition_date'});
 
   return \%return_hash;
 }

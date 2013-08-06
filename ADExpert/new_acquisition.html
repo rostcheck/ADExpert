@@ -3,10 +3,6 @@ _R_NAVBAR
 _R_QUERY_START_ONE
 select f.firearm_id, manufacturer, model, serial_number
 from firearm f
-left join acquisition a
-on f.firearm_id = a.firearm_id
-where acquisition_id is null
-order by serial_number
 _R_QUERY_END_ONE
 
 _R_QUERY_START_TWO
