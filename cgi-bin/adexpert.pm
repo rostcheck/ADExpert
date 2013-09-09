@@ -10,7 +10,7 @@ $VERSION = 1.00;
 
 @EXPORT = qw(&log_trading_partner_changes &log_firearm_changes &log_acquisition_changes &log_disposition_changes &prep_ad_book_fields);
 
-# Transform a row from teh ad_book_view (normalized database form) into the
+# Transform a row from the ad_book_view (normalized database form) into the
 # un-normalized A&D book form per. ATF Quick References and Best Practices
 # Guide.
 sub prep_ad_book_fields
@@ -44,10 +44,17 @@ sub prep_ad_book_fields
     $return_hash{'disposition_info'} = "$r_state->{'disposition_address1'}<br>$r_state->{'disposition_city'}, $r_state->{'disposition_state'} $r_state->{'disposition_zip'}";
   }
   else { $return_hash{'disposition_info'} = ""; }
-  $return_hash{'acquisition_date'} = short_date_from_mysql_date($r_state->{'acquisition_date'});
-  $return_hash{'disposition_date'} = short_date_from_mysql_date($r_state->{'disposition_date'});
+  $return_hash{'acquisition_date'} = date_or_empty(short_date_from_mysql_date($r_state->{'acquisition_date'}));
+  $return_hash{'disposition_date'} = date_or_empty(short_date_from_mysql_date($r_state->{'disposition_date'}));
 
   return \%return_hash;
+}
+
+sub date_or_empty
+{
+	my $input_date = $_[0];
+	if ($input_date eq "01/01/70") { return ""; }
+	else { return $input_date; }
 }
 
 sub log_trading_partner_changes
