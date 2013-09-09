@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS trading_partner;
 CREATE TABLE trading_partner
 (
 	trading_partner_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(40) NOT NULL,
+	name VARCHAR(80) NOT NULL,
 	ffl_license_number VARCHAR(20) NULL,
 	premises_address1 VARCHAR(50) NOT NULL,
 	premises_address2 VARCHAR(50) NULL,
@@ -25,7 +25,7 @@ CREATE TABLE trading_partner_pre_edit
 (
 	trading_partner_pre_edit_id MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	trading_partner_id MEDIUMINT UNSIGNED NOT NULL,
-	name VARCHAR(40) NOT NULL,
+	name VARCHAR(80) NOT NULL,
 	ffl_license_number VARCHAR(20) NULL,
 	premises_address1 VARCHAR(50) NOT NULL,
 	premises_address2 VARCHAR(50) NULL,
